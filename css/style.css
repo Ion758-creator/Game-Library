@@ -15,7 +15,6 @@ body{
     min-height:100vh;
 }
 
-/* SIDEBAR */
 
 .sidebar{
     width:270px;
@@ -96,8 +95,7 @@ body{
     color:#bbb;
     line-height:1.6;
 }
-
-/* MAIN */
+ 
 
 .main{
     flex:1;
@@ -170,7 +168,7 @@ body{
     background:#7c3aed;
 }
 
-/* FILTERS */
+
 
 .filters{
     background:#0f172a;

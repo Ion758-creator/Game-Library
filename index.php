@@ -55,7 +55,6 @@ $games = [
 
 <div class="container">
 
-    <!-- SIDEBAR -->
     <aside class="sidebar">
 
         <div class="logo">
@@ -95,7 +94,7 @@ $games = [
         <div class="header">
 
             <div class="title">
-                <h1><i class="fa-solid fa-floppy-disk"></i> Game Library</h1>
+                <h1></i> Game Library</h1>
                 <p>All your games in one place</p>
             </div>
 
