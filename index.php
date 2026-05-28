@@ -20,7 +20,7 @@ $games = [
     ],
     [
         "title" => "Red Dead Redemption 2",
-        "image" => "images/red dead.jpg",
+        "image" => "images/Read dead.jpg",
         "status" => "Completed",
         "rating" => "9.6"
     ],
