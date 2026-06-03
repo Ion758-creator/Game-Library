@@ -155,6 +155,7 @@
           $err = $_GET['error'];
           if ($err === 'exists')  echo "This username already exists!";
           elseif ($err === 'empty') echo "Username and password cannot be empty!";
+          elseif ($err === 'login_required') echo "You must login to access the library.";
           elseif ($err === 'write') echo "Server error: could not save user.";
           else echo "Invalid username or password!";
         ?>
