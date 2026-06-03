@@ -1,33 +1,68 @@
-const signinBtn = document.getElementById("signinBtn");
-const signupBtn = document.getElementById("signupBtn");
-const nameField = document.getElementById("nameField");
-const title = document.getElementById("title");
+const gamesGrid = document.getElementById("gamesGrid");
+const searchInput = document.getElementById("searchInput");
+const totalCount = document.getElementById("totalCount");
+const filterButtons = Array.from(document.querySelectorAll(".filter"));
+const sidebarItems = Array.from(document.querySelectorAll(".sidebar .menu li"));
+const cards = Array.from(document.querySelectorAll(".card"));
 
-signupBtn.onclick = function () {
-    nameField.style.maxHeight = "60px";
-    title.textContent = "Register";
+let currentFilter = "all";
 
-    signupBtn.classList.remove("disable");
-    signinBtn.classList.add("disable");
+function setFilter(status, element) {
+    currentFilter = status;
 
-    signinBtn.removeAttribute("name");
+    filterButtons.forEach((btn) => {
+        const btnStatus = btn.getAttribute("onclick")?.match(/setFilter\('(.+?)'/)?.[1];
+        btn.classList.toggle("active", btnStatus === status);
+    });
 
-    signupBtn.setAttribute("type", "submit");
-    signupBtn.setAttribute("name", "register");
-};
+    sidebarItems.forEach((item) => {
+        const itemStatus = item.getAttribute("onclick")?.match(/setFilter\('(.+?)'/)?.[1];
+        item.classList.toggle("active", itemStatus === status);
+    });
 
-signinBtn.onclick = function () {
-    if (title.textContent === "Register") {
+    updateGameList();
+}
 
-        nameField.style.maxHeight = "0";
-        title.textContent = "Login";
+function filterGames() {
+    updateGameList();
+}
 
-        signupBtn.classList.add("disable");
-        signinBtn.classList.remove("disable");
+function updateGameList() {
+    const query = searchInput?.value.trim().toLowerCase() || "";
+    let visibleCount = 0;
 
-        signupBtn.setAttribute("type", "button");
-        signupBtn.removeAttribute("name");
+    cards.forEach((card) => {
+        const status = card.dataset.status;
+        const title = card.dataset.title;
+        const matchesStatus = currentFilter === "all" || status === currentFilter;
+        const matchesText = query === "" || title.includes(query);
+        const visible = matchesStatus && matchesText;
 
-        signinBtn.setAttribute("name", "login");
+        card.style.display = visible ? "" : "none";
+        if (visible) visibleCount += 1;
+    });
+
+    if (totalCount) {
+        totalCount.textContent = `Total: ${visibleCount} games`;
     }
-};
+}
+
+function openModal(modalId) {
+    const modal = document.getElementById(modalId);
+    if (!modal) {
+        console.warn(`Modal not found: ${modalId}`);
+        return;
+    }
+    modal.classList.add("open");
+}
+
+function closeModal(modalId) {
+    const modal = document.getElementById(modalId);
+    if (!modal) return;
+    modal.classList.remove("open");
+}
+
+// Initialize page with default filter state
+if (cards.length > 0) {
+    updateGameList();
+}

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=1280">
   <title>Game Library | Login & Register</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap">
   <style>
@@ -133,10 +133,7 @@
       color: #ef4444;
     }
 
-    @media (max-width: 420px) {
-      .container { width: 90%; }
-      .form-box { padding: 30px; }
-    }
+    /* Desktop fixed width — no mobile scaling */
   </style>
 </head>
 <body>
@@ -155,7 +152,6 @@
           $err = $_GET['error'];
           if ($err === 'exists')  echo "This username already exists!";
           elseif ($err === 'empty') echo "Username and password cannot be empty!";
-          elseif ($err === 'login_required') echo "You must login to access the library.";
           elseif ($err === 'write') echo "Server error: could not save user.";
           else echo "Invalid username or password!";
         ?>
