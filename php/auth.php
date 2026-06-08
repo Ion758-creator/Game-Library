@@ -7,12 +7,18 @@ function isLoggedIn() {
 
 function requireLogin() {
     if (!isLoggedIn()) {
-        header("Location: php/login.php?error=login_required");
+        header("Location: ../php/login.php?error=login_required");
         exit();
     }
 }
 
 function getUsername() {
     return $_SESSION['username'] ?? '';
+}
+
+function logout() {
+    session_destroy();
+    header("Location: ../index.php");
+    exit();
 }
 ?>

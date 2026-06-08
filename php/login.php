@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ro" data-theme="dark">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=1280">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Game Library | Login & Register</title>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap">
+  
   <style>
     * { margin:0; padding:0; box-sizing:border-box; font-family:'Poppins',sans-serif; }
 
@@ -103,13 +103,14 @@
     }
 
     .btn-field button.disable {
-      background: rgba(255,255,255,0.08);
-      color: #aaa;
+      background: rgba(139,92,246,0.2);
+      color: #fff;
       box-shadow: none;
+      border: 1px solid rgba(139,92,246,0.4);
     }
 
     .btn-field button.disable:hover {
-      background: rgba(139,92,246,0.15);
+      background: rgba(139,92,246,0.35);
       color: #fff;
     }
 
@@ -133,7 +134,7 @@
       color: #ef4444;
     }
 
-    /* Desktop fixed width — no mobile scaling */
+    @media (max-width:480px) { .container { width:95vw; margin:0 auto; } body { padding:20px 0; height:auto; min-height:100vh; } }
   </style>
 </head>
 <body>
@@ -162,7 +163,7 @@
       <div class="input-group">
 
         <div class="input-field" id="nameField">
-          <input type="text" name="fullname" placeholder="Full name" id="nameInput">
+          <input type="email" name="email" placeholder="Email" id="nameInput">
         </div>
 
         <div class="input-field">
@@ -173,7 +174,7 @@
           <input type="password" name="password" placeholder="Password" id="passwordInput" required>
         </div>
 
-        <p>Forgot your password? <a href="#">Reset here</a></p>
+        <p>Forgot your password? <a href="reset.php">Reset here</a></p>
       </div>
 
       <div class="btn-field">
@@ -217,5 +218,9 @@ signinBtn.onclick = function() {
 };
 </script>
 
+<script>
+const _s = localStorage.getItem("gamelib_settings");
+if (_s) { try { const p=JSON.parse(_s); if(p.theme) document.documentElement.setAttribute("data-theme",p.theme); if(p.accentColor) document.documentElement.style.setProperty("--accent",p.accentColor); } catch{} }
+</script>
 </body>
-</html>
+</html> 

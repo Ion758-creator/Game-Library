@@ -1,0 +1,42 @@
+[
+    {
+        "id": 2,
+        "title": "Grand Theft Auto V",
+        "image": "images\/gta.jpg",
+        "status": "Completed",
+        "rating": "9.8",
+        "genre": "Action",
+        "notes": "Classic. Played it 3 times.",
+        "addedBy": "ion"
+    },
+    {
+        "id": 4,
+        "title": "Red Dead Redemption 2",
+        "image": "images\/Read dead.jpg",
+        "status": "Completed",
+        "rating": "9.6",
+        "genre": "Action",
+        "notes": "Masterpiece storytelling.",
+        "addedBy": "ion"
+    },
+    {
+        "id": 5,
+        "title": "Resident Evil 4",
+        "image": "images\/resident.jpeg",
+        "status": "Backlog",
+        "rating": "9.2",
+        "genre": "Horror",
+        "notes": "Need to start this one.",
+        "addedBy": "ion"
+    },
+    {
+        "id": 6,
+        "title": "Call of Duty Black Ops",
+        "image": "images\/Call of duty.jpg",
+        "status": "Backlog",
+        "rating": "8.7",
+        "genre": "Shooter",
+        "notes": "Classic multiplayer.",
+        "addedBy": "ion"
+    }
+]
