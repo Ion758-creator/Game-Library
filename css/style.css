@@ -582,3 +582,8 @@ footer {
 
 /* ===== LANG HIDDEN ===== */
 [data-lang-key] { transition: .2s; }
+
+.form-input option {
+    background: #ffffff;
+    color: #000000;
+}
